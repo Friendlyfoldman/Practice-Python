@@ -1,0 +1,6 @@
+def a():
+    age =int( input("What age will you be at the end of this year? "))
+    name = input("What is your name? ")
+    print (name,  "you will turn 100 years old in", 2126 - age)
+
+a()

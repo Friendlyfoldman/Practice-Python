@@ -1,0 +1,26 @@
+def oddeven():
+    number = int(input("Gimme a number! "))
+    if number % 4 == 0:
+        print("Multiple of 4")
+    elif number % 2 == 0:
+        print("even")
+    else:
+        print ("odd")
+
+def dividecheck():
+    num = int(input("Gimme a number! "))
+    check = int(input("Gimme another one you lil rascal! "))
+    if (num % check) == 0:
+        print("Divisible")
+    else:
+        print("Not Divisible")
+
+oddeven()
+
+print("Now for the next one!")
+
+dividecheck()   
+
+
+
+
