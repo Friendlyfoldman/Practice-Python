@@ -1,0 +1,28 @@
+#Take the code from the How To Decode A Website exercise (if you didn’t do it or just want to play 
+# with some different code, use the code from the solution), and instead of printing the
+#  results to a screen, write the results to a txt file. In your code, just make up a name for the 
+# file you are saving to.
+
+
+import requests
+from bs4 import BeautifulSoup
+
+
+url = 'http://www.nytimes.com/'
+ttl_lst = []
+
+headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+response = requests.get(url, headers=headers)
+soup = BeautifulSoup(requests.get(url).text, 'html.parser')
+title = soup.find_all('h2', {'class': 'story-heading'})
+for row in title:
+     ttl_lst.append(row.text)
+print(len(ttl_lst)) 
+
+file_name = input("Insert file name  (without extension): ") + ".txt"
+with open(file_name, 'w') as f: #open a file to write to
+    for item in ttl_lst:   #iterate through the list of titles
+        f.write("%s\n" % item)   #write each title to the file, followed by a newline character to separate them
