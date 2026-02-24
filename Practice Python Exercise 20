@@ -1,0 +1,37 @@
+#Exercise 20 (and Solution)
+
+#Write a function that takes an ordered list of numbers (a list where the elements are in order from smallest to largest) and another number. The function decides whether or not the given number is inside the list and returns (then prints) an appropriate boolean.
+
+#Extras:
+
+ #   Use binary search.
+
+def numcheck():
+    a = [1,3,5,6,7,9,13]
+    check=int(input('Choose a number: '))
+    for x in a:
+        if x == check:
+            print("True")
+            break   #This is to stop the loop if the number is found, otherwise it will print "False" for every number that doesn't match until it finds a match or finishes the loop.
+    else:
+        print("False")
+
+numcheck()
+
+def binarynumcheck():
+    a = [1,3,5,6,7,9,13]
+    check=int(input('Choose a number: '))
+    low = 0
+    high = len(a) - 1 #This is to set the high variable to the index of the last element in the list, since list indices start at 0. If we set high to len(a), it would be out of range and cause an error when we try to access a[mid].
+    while low <= high: #This condition is to ensure that the search continues as long as there are elements to check. If low exceeds high, it means we've checked all possible positions without finding the number, and we can conclude that it's not in the list.
+        mid = (low + high) // 2
+        if a[mid] == check:
+            print("True")
+            break
+        elif a[mid] < check:
+            low = mid + 1
+        else:
+            high = mid - 1
+    else:
+        print("False")
+binarynumcheck()
